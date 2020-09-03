@@ -13,6 +13,7 @@ import {
   receiveAccessTokenError,
 } from "../../actions";
 import GlobalStyle from "./GlobalStyle";
+import ArtistRoute from "../ArtistRoute";
 
 const DEFAULT_ARTIST_ID = "2RhgnQNC74QoBlaUvT4MEe";
 const defaultArtistPath = `/artists/${DEFAULT_ARTIST_ID}`;
@@ -38,7 +39,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/artists/:id">
-            <div>Artists Page</div>
+            <ArtistRoute />
           </Route>
           <Route exact path="/">
             <Redirect to={{ pathname: defaultArtistPath }} />
