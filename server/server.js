@@ -29,14 +29,12 @@ app.get("/spotify_access_token", (req, res, next) => {
     body: "grant_type=client_credentials",
   })
     .then((response) => {
-      console.log(response);
       if (response.status >= 400) {
         throw new Error("Bad response from server");
       }
       return response.json();
     })
     .then((token) => {
-      console.log(token);
       return res.send(token);
     });
 });
