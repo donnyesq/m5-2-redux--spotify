@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import tc from "thousands-counter";
 
 import { fetchArtistProfile } from "../../helpers/api-helpers";
 import {
@@ -23,11 +22,11 @@ const ArtistRoute = () => {
     const M = "M";
     const num = Number(followers);
 
-    switch (num) {
-      case num > 999:
-        return `${Math.round(num)}${K}`;
+    switch (true) {
+      case num > 999 && num < 999999:
+        return `${Math.round(num / 1000)}${K}`;
       case num > 999999:
-        return `${Math.round(num)}${M}`;
+        return `${Math.round(num / 1000000)}${M}`;
       default:
         return num;
     }
